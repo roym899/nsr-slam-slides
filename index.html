@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white_contrast_compact_verbatim_headers.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+<section>
+	<h1>Overview</h1>
+	<h2></h2>
+	<list>
+	  <li>Introduction: neural scene representations, NeRFs, etc.</li> <!-- 10 minutes -->
+	  <li>Neural scene representations for SLAM</li> <!-- 10 minutes -->
+	  <li>Efficient loop closure in neural SLAM</li>  <!-- 15 minutes -->
+	  <li>Open research problems</li> <!-- 10 minutes -->
+	</list>
+</section>
+<section>
+	<h1>Neural Scene Representations</h1>
+	<h2></h2>
+	<list>
+	  <li>Core idea: represent 3D scene by a simple neural network</li>
+	</list>
+</section>
+<section>
+	<h1>Neural Scene Representations</h1>
+	<h2>Early Works</h2>
+	<list>
+	  <li>Trained using direct 3D supervision (i.e., from mesh collections)</li>
+	  <li>DeepSDF, occupancy network, ...</li>
+	</list>
+</section>
+<section>
+	<h1>Neural Scene Representations</h1>
+	<h2>NeRFs</h2>
+	<list>
+	  <li>Neural radiance fields (NeRFS)</li>
+	  <li>Trained using 2D supervision (i.e., from posed 2D images)</li>
+	</list>
+</section>
+<section>
+	<h1>Neural Scene Representations</h1>
+	<h2>Follow-up Works</h2>
+	<list>
+	  <li>Instant Neural Graphics Primitives</li>
+	  <li>NeuS</li>
+	  <li>Zip-NeRF</li>
+	</list>
+</section>
+<section>
+	<h1>Neural Scene Representations for SLAM</h1>
+	<h2></h2>
+	<list>
+	  <li>Dense visual SLAM</li>
+	</list>
+</section>
+<section>
+	<h1>Neural Scene Representations for SLAM</h1>
+	<h2>iMAP</h2>
+	<list>
+	  <li>Dense visual SLAM</li>
+	</list>
+</section>
+<section>
+	<h1>Neural Scene Representations for SLAM</h1>
+	<h2>NICE-SLAM</h2>
+	<list>
+	  <li>Dense visual SLAM</li>
+	</list>
+</section>
+<section>
+	<h1>Neural Scene Representations for SLAM</h1>
+	<h2>Follow-up Works</h2>
+	<list>
+	  <li>ESLAM</li>
+	  <li>Co-SLAM</li>
+	  <li>GO-SLAM</li>
+	</list>
+</section>
+<section>
+	<h1>Neural Scene Representations for SLAM</h1>
+	<h2>Common Limitation: Monolithic Field</h2>
+	<list>
+	  <li>placeholder</li>
+	</list>
+</section>
+<section>
+	<h1>Efficient Loop Closure for Neural SLAM</h1>
+	<h2></h2>
+	<list>
+	  <li>placeholder</li>
+	</list>
+</section>
+<section>
+	<h1>Efficient Loop Closure for Neural SLAM</h1>
+	<h2></h2>
+	<list>
+	  <li>placeholder</li>
+	</list>
+</section>
+<section>
+	<h1>Efficient Loop Closure for Neural SLAM</h1>
+	<h2></h2>
+	<list>
+	  <li>placeholder</li>
+	</list>
+</section>
+<section>
+	<h1>Efficient Loop Closure for Neural SLAM</h1>
+	<h2></h2>
+	<list>
+	  <li>placeholder</li>
+	</list>
+</section>
+<section>
+	<h1>Future</h1>
+	<h2>Learning vs Optimization</h2>
+	<list>
+	  <li></li>
+	</list>
+</section>
+<section>
+	<h1>Future</h1>
+	<h2>Efficiency</h2>
+	<list>
+	  <li>How to learn field from partial observation?</li>
+	  <li></li>
+	</list>
+</section>
+<section>
+	<h1>Future</h1>
+	<h2>Gaussian Splatting</h2>
+	<list>
+	  <li>Allows significantly faster rendering than neural fields</li>
+	  <li>Geometry not as good yet</li>
+	</list>
+</section>
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				controls: false,
+				progress: true,
+				slideNumber: true,
+				center: false,
+				transition: 'fade',
+				transitionSpeed: 'fast',
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
