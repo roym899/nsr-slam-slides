@@ -8,7 +8,7 @@
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/white_contrast_compact_verbatim_headers.css">
+		<link rel="stylesheet" href="dist/theme/kth.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
@@ -17,159 +17,307 @@
 		<div class="reveal">
 			<div class="slides">
 
-<section>
-	<h1>Overview</h1>
-	<h2></h2>
-	<list>
-	  <li>Introduction: neural scene representations, NeRFs, etc.</li> <!-- 10 minutes -->
-	  <li>Neural scene representations for SLAM</li> <!-- 10 minutes -->
-	  <li>Efficient loop closure in neural SLAM</li>  <!-- 15 minutes -->
-	  <li>Open research problems</li> <!-- 10 minutes -->
-	</list>
-</section>
-<section>
-	<h1>Neural Scene Representations</h1>
-	<h2></h2>
-	<list>
-	  <li>Core idea: represent 3D scene by a simple neural network</li>
-	</list>
-</section>
-<section>
-	<h1>Neural Scene Representations</h1>
-	<h2>Early Works</h2>
-	<list>
-	  <li>Trained using direct 3D supervision (i.e., from mesh collections)</li>
-	  <li>DeepSDF, occupancy network, ...</li>
-	</list>
-</section>
-<section>
-	<h1>Neural Scene Representations</h1>
-	<h2>NeRFs</h2>
-	<list>
-	  <li>Neural radiance fields (NeRFS)</li>
-	  <li>Trained using 2D supervision (i.e., from posed 2D images)</li>
-	</list>
-</section>
-<section>
-	<h1>Neural Scene Representations</h1>
-	<h2>Follow-up Works</h2>
-	<list>
-	  <li>Instant Neural Graphics Primitives</li>
-	  <li>NeuS</li>
-	  <li>Zip-NeRF</li>
-	</list>
-</section>
-<section>
-	<h1>Neural Scene Representations for SLAM</h1>
-	<h2></h2>
-	<list>
-	  <li>Dense visual SLAM</li>
-	</list>
-</section>
-<section>
-	<h1>Neural Scene Representations for SLAM</h1>
-	<h2>iMAP</h2>
-	<list>
-	  <li>Dense visual SLAM</li>
-	</list>
-</section>
-<section>
-	<h1>Neural Scene Representations for SLAM</h1>
-	<h2>NICE-SLAM</h2>
-	<list>
-	  <li>Dense visual SLAM</li>
-	</list>
-</section>
-<section>
-	<h1>Neural Scene Representations for SLAM</h1>
-	<h2>Follow-up Works</h2>
-	<list>
-	  <li>ESLAM</li>
-	  <li>Co-SLAM</li>
-	  <li>GO-SLAM</li>
-	</list>
-</section>
-<section>
-	<h1>Neural Scene Representations for SLAM</h1>
-	<h2>Common Limitation: Monolithic Field</h2>
-	<list>
-	  <li>placeholder</li>
-	</list>
-</section>
-<section>
-	<h1>Efficient Loop Closure for Neural SLAM</h1>
-	<h2></h2>
-	<list>
-	  <li>placeholder</li>
-	</list>
-</section>
-<section>
-	<h1>Efficient Loop Closure for Neural SLAM</h1>
-	<h2></h2>
-	<list>
-	  <li>placeholder</li>
-	</list>
-</section>
-<section>
-	<h1>Efficient Loop Closure for Neural SLAM</h1>
-	<h2></h2>
-	<list>
-	  <li>placeholder</li>
-	</list>
-</section>
-<section>
-	<h1>Efficient Loop Closure for Neural SLAM</h1>
-	<h2></h2>
-	<list>
-	  <li>placeholder</li>
-	</list>
-</section>
-<section>
-	<h1>Future</h1>
-	<h2>Learning vs Optimization</h2>
-	<list>
-	  <li></li>
-	</list>
-</section>
-<section>
-	<h1>Future</h1>
-	<h2>Efficiency</h2>
-	<list>
-	  <li>How to learn field from partial observation?</li>
-	  <li></li>
-	</list>
-</section>
-<section>
-	<h1>Future</h1>
-	<h2>Gaussian Splatting</h2>
-	<list>
-	  <li>Allows significantly faster rendering than neural fields</li>
-	  <li>Geometry not as good yet</li>
-	</list>
-</section>
+				<section>
+					<h1>Overview</h1>
+					<h2></h2>
+					<ul>
+						<li>Introduction: neural fields, NeRFs, etc.</li> <!-- 10 minutes -->
+						<li>Neural scene representations for SLAM</li> <!-- 10 minutes -->
+						<li>Efficient loop closure in neural SLAM</li>  <!-- 15 minutes -->
+						<li>Open research problems</li> <!-- 10 minutes -->
+					</ul>
+				</section>
+				<section>
+					<h4>Introduction</h4>
+					<h1>Shape and Scene Representations</h1>
+					<h2></h2>
+					<ul>
+						<li>Various shape / scene representations exist</li>
+						<li>Surface representations
+							<ul>
+								<li>Store surface position and quantities on surface</li>
+								<li>Examples
+									<ul>
+										<li>Meshes</li>
+										<li>Point clouds</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>Volumetric representations
+							<ul>
+								<li>Store quantities in volume</li>
+								<li>Examples
+									<ul>
+										<li>Voxel grid (dense, octrees, voxel hashing)</li>
+										<li>Neural fields</li>
+										<li>Set of Gaussians</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Introduction</h4>
+					<h1>Neural Fields</h1>
+					<h2></h2>
+					<ul>
+						<li>Core idea: represent 3D shape by a simple neural network</li>
+						\[
+						\begin{aligned}
+						f: \mathbb{R}^{3} &\to \mathbb{R}^3\times\mathbb{R}\\
+						\boldsymbol{x}&\mapsto (\boldsymbol{c}, \rho)
+						\end{aligned}
+						\]
+						<li>Map 3D point $\boldsymbol{x}$ to quantity $\rho$ (e.g., SDF, occupancy, color, etc.)</li>
+						<li>Properties
+							<ul>
+								<li>Continuous</li>
+								<li>Differentiable</li>
+								<li>Adaptive $\to$ potentially memory efficient</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Introduction</h4>
+					<h1>Neural Scene Representations</h1>
+					<h2>Early Works</h2>
+					<ul>
+						<li>Trained using direct 3D supervision (i.e., from mesh collections)</li>
+						<li>DeepSDF, occupancy network, ...</li>
+						<li>Demonstrate shape interpolation by adding additional latent input</li>
+						\[
+						\begin{aligned}
+						f: \mathbb{R}^{3} \times \mathbb{R}^2 &\to \mathbb{R}^3\times\mathbb{R}\\
+						(\boldsymbol{x}, \boldsymbol{d})&\mapsto (\boldsymbol{c}, \sigma)
+						\end{aligned}
+						\]
+					</ul>
+				</section>
+				<section>
+					<h4>Introduction</h4>
+					<h1>Neural Scene Representations</h1>
+					<h2>Neural Radiance Field (NeRF)</h2>
+					<ul>
+						<li>Train neural field using 2D supervision</li>
+						<li>Camera poses fixed (e.g., from structure-from-motion)</li>
+						<li>Fit 3D scene through volume rendering and analysis-by-synthesis</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Introduction</h4>
+					<h1>Neural Scene Representations</h1>
+					<h2>Neural Radiance Field (NeRF)</h2>
+					<ul>
+						<li>NeRF Examples</li>
+						<li>Limitations
+							<ul>
+								<li>Mainly limited to small forward-facing scenes</li>
+								<li>Isolevel for surfaces not well-defined</li>
+								<li>Optimization time (~hours)</li>
+								<li>Rendering time (~seconds for single 1080p frame)</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Introduction</h4>
+					<h1>Neural Scene Representations</h1>
+					<h2>Follow-up Works</h2>
+					<ul>
+						<li>Surfaces: NeuS</li>
+						<li>Speed: Instant Neural Graphics Primitives</li>
+						<li>Quality: Zip-NeRF</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Neural Scene Representations for SLAM</h4>
+					<h1>Dense Visual SLAM</h1>
+					<h2></h2>
+					<ul>
+						<li>Visual Simultaneous Localization and Mapping (SLAM)
+							<ul>
+								<li>Estimate camera trajectory from moving camera</li>
+								<li>Often uses sparse keypoint-based maps</li>
+							</ul>
+						</li>
+						<li>Dense visual SLAM
+							<ul>
+								<li>Estimate dense 3D scene representation during localization (e.g., mesh)</li>
+								<li>Often uses RGB-D data</li>
+								<li>Often uses volumetric scene representation
+									<ul>
+										<li>Classic approaches use voxel grids to represent 3D scene</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Neural Scene Representations for SLAM</h4>
+					<h1>iMAP</h1>
+					<h2></h2>
+					<ul>
+						<li>First work demonstrating SLAM using neural field as scene representation</li>
+						<li>Alternates between frame-to-map alignment and map refinement</li>
+						<li>Compared to NeRF
+							<ul>
+								<li>Removed view-direction dependency</li>
+								<li>Smaller neural network</li>
+								<li>Depth supervision</li>
+							</ul>
+						</li>
+						<li>Limitation: continuous reoptimization of previous areas required to prevent forgetting</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Neural Scene Representations for SLAM</h4>
+					<h1>NICE-SLAM</h1>
+					<h2></h2>
+					<ul>
+						<li>Replaces single MLP by combination of feature grid and frozen, pretrained decoder<br/>$\to$ No more forgetting</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Neural Scene Representations for SLAM</h4>
+					<h1>Follow-up Works</h1>
+					<h2></h2>
+					<ul>
+						<li>ESLAM</li>
+						<li>Co-SLAM</li>
+						<li>GO-SLAM</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Neural Scene Representations for SLAM</h4>
+					<h1>Common Limitation: Monolithic Field</h1>
+					<h2></h2>
+					<ul>
+						<li>Neural fields are expensive to optimize</li>
+						<li>Sensor data gets baked into a data structure
+							<ul>
+								<li>Similar to classic voxel-based data structures</li>
+							</ul>
+						</li>
+						<li>Cannot easily deform volumetric scene representation on loop closure
+							<ul>
+								<li>Typically requires to reintegrate data in some way<br />
+									$\to$ The larger the loop, the more reintegration is required
+
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Efficient Loop Closure for Neural SLAM</h4>
+					<h1></h1>
+					<ul>
+						<li>placeholder</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Efficient Loop Closure for Neural SLAM</h4>
+					<h2></h2>
+					<ul>
+						<li>placeholder</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Efficient Loop Closure for Neural SLAM</h4>
+					<h1>Example</h1>
+					<ul>
+						<li>placeholder</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Efficient Loop Closure for Neural SLAM</h4>
+					<h1>Another Example</h1>
+					<ul>
+						<li>placeholder</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Efficient Loop Closure for Neural SLAM</h4>
+					<h1>Outlook</h1>
+					<ul>
+						<li>Trading off memory usage with flexibility to adapt to loop closure</li>
+						<li></li>
+						<li>Scalability to outdoor sequences?</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Future</h1>
+					<h2>Learning vs Optimization</h2>
+					<ul>
+						<li>Optimization-based approaches inherently limited to what is captured by sensors
+							<ul>
+								<li>Sufficient for elaborate sensor setups and human operator</li>
+								<li>However, far from human-level spatial understanding (infilling / etc.)</li>
+							</ul>
+						</li>
+						<li>Learning approaches might infill from partial observations</li>
+						<li>How to combine strong generative model with partial observations?
+							<ul>
+								<li>Some work in this direction: ReconFusion</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Future</h1>
+					<h2>Object-based / Interactive Map Decomposition</h2>
+					<ul>
+						<li>Scenes learned in this way are not interactive
+							<ul>
+								<li>Objects cannot be interacted with</li>
+								<li>Lighting is baked in</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Future</h1>
+					<h2>Gaussian Splatting</h2>
+					<ul>
+						<li>Allows significantly faster rendering than neural fields via rasterization (100 FPS)</li>
+						<li>Memory-efficiency and geometry slightly worse than for functional neural field approaches</li>
+						<li>Quality still slightly worse than Zip-NeRF</li>
+					</ul>
+					https://lumalabs.ai/featured
+				</section>
 
 			</div>
 		</div>
 
 		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
 			Reveal.initialize({
-				hash: true,
-				controls: false,
-				progress: true,
-				slideNumber: true,
-				center: false,
-				transition: 'fade',
-				transitionSpeed: 'fast',
+							  width: 1920,
+							  height: 1080,
+							  margin: 0.1,
+							  minScale: 0.1,
+							  maxScale: 3.0,
+							  hash: true,
+							  controls: false,
+							  progress: true,
+							  slideNumber: true,
+							  center: false,
+							  transition: 'fade',
+							  transitionSpeed: 'fast',
+							  includeNodes: false,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+							  // Learn about plugins: https://revealjs.com/plugins/
+							  plugins: [ RevealMarkdown, RevealHighlight, RevealMath.KaTeX ]
 			});
 		</script>
 	</body>
