@@ -91,12 +91,17 @@
 						<li>Demonstrate shape interpolation by adding additional latent input</li>
 						\[
 						\begin{aligned}
-						f: \mathbb{R}^{3} \times \mathbb{R}^2 &\to \mathbb{R}^3\times\mathbb{R}\\
-						(\boldsymbol{x}, \boldsymbol{d})&\mapsto (\boldsymbol{c}, \sigma)
+						f: \mathbb{R}^{3} \times \mathbb{R}^N &\to \mathbb{R}\\
+						(\boldsymbol{x}, \boldsymbol{z})&\mapsto \sigma
 						\end{aligned}
 						\]
 					</ul>
-					<-- video source https://www.youtube.com/watch?v=C_XNdGGs6qM -->
+					<br />
+					<img style="margin-left:200px" src="assets/deepsdf.png" width="25%">
+					<video style="margin-left: 200px" width="40%" controls>
+						<source data-autoplay loop data-src="assets/deepsdf_interpolation.webm">
+					</video>
+					<!-- video source https://www.youtube.com/watch?v=C_XNdGGs6qM -->
 				</section>
 				<section>
 					<h4>Introduction</h4>
@@ -105,6 +110,13 @@
 					<ul>
 						<li>Train neural field using 2D supervision</li>
 						<li>Camera poses fixed (e.g., from structure-from-motion)</li>
+						<li>Add 2D view direction as additional input</li>
+						\[
+						\begin{aligned}
+						f: \mathbb{R}^{3} \times \mathbb{R}^2 &\to \mathbb{R}^3\times\mathbb{R}\\
+						(\boldsymbol{x}, \boldsymbol{d})&\mapsto (\boldsymbol{c}, \sigma)
+						\end{aligned}
+						\]
 						<li>Fit 3D scene through volume rendering and analysis-by-synthesis</li>
 					</ul>
 				</section>
@@ -318,6 +330,7 @@
 							  transition: 'fade',
 							  transitionSpeed: 'fast',
 							  includeNodes: false,
+							  autoPlayMedia: true,
 
 							  // Learn about plugins: https://revealjs.com/plugins/
 							  plugins: [ RevealMarkdown, RevealHighlight, RevealMath.KaTeX ]

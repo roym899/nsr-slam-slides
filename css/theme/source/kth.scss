@@ -55,3 +55,6 @@ $overlayElementFgColor: 240, 240, 240;
 .reveal .slides ul, .reveal .slides ol {
 	list-style-type: disc;
 }
+video::-webkit-media-controls-panel {
+display: none !important;
+opacity: 1 !important;}
