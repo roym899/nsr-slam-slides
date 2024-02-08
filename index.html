@@ -23,7 +23,7 @@
 					<ul>
 						<li>Introduction: neural fields, NeRFs, etc.</li> <!-- 10 minutes -->
 						<li>Neural scene representations for SLAM</li> <!-- 10 minutes -->
-						<li>Efficient loop closure in neural SLAM</li>  <!-- 15 minutes -->
+						<li>Efficient loop closure in neural SLAM</li>  <!-- 10 minutes -->
 						<li>Open research problems</li> <!-- 10 minutes -->
 					</ul>
 				</section>
@@ -108,7 +108,7 @@
 					<h1>Neural Scene Representations</h1>
 					<h2>Neural Radiance Field (NeRF)</h2>
 					<ul>
-						<li>Train neural field using 2D supervision</li>
+						<li>Train neural field using indirect 2D supervision</li>
 						<li>Camera poses fixed (e.g., from structure-from-motion)</li>
 						<li>Add 2D view direction as additional input</li>
 						\[
@@ -236,13 +236,6 @@
 				</section>
 				<section>
 					<h4>Efficient Loop Closure for Neural SLAM</h4>
-					<h1></h1>
-					<ul>
-						<li>placeholder</li>
-					</ul>
-				</section>
-				<section>
-					<h4>Efficient Loop Closure for Neural SLAM</h4>
 					<h1>Example</h1>
 					<ul>
 						<li>placeholder</li>
@@ -257,11 +250,39 @@
 				</section>
 				<section>
 					<h4>Efficient Loop Closure for Neural SLAM</h4>
+					<h1>Comparison to Monolithic Approaches</h1>
+
+					<ul>
+						<li>TODO? what to put here?</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Efficient Loop Closure for Neural SLAM</h4>
 					<h1>Outlook</h1>
 					<ul>
-						<li>Trading off memory usage with flexibility to adapt to loop closure</li>
-						<li></li>
-						<li>Scalability to outdoor sequences?</li>
+						<li>Higher memory usage compared to monolithic neural field methods</li>
+							<ul>
+								<li>How to reduce memory requirements?</li>
+							</ul>
+						</li>
+						<br />
+						<li>Neural field-based map not used for SLAM currently
+							<ul>
+								<li>How to combine sparse visual SLAM and dense visual SLAM?</li>
+							</ul>
+						</li>
+						<br />
+						<li>Currently limited to indoor environments with depth data available
+							<ul>
+								<li>How to extend to outdoor environments?</li>
+							</ul>
+						</li>
+						<br />
+						<li>Neural SLAM in general requires lots of resources
+							<ul>
+								<li>Can we use meta-learning for few-shot mapping?</li>
+							</ul>
+						</li>
 					</ul>
 				</section>
 				<section>
