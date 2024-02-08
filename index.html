@@ -57,6 +57,7 @@
 							</ul>
 						</li>
 					</ul>
+					<!--Octree source https://developer.download.nvidia.com/books/gpugems2/37_octree_03.jpg -->
 				</section>
 				<section>
 					<h4>Introduction</h4>
@@ -95,6 +96,7 @@
 						\end{aligned}
 						\]
 					</ul>
+					<-- video source https://www.youtube.com/watch?v=C_XNdGGs6qM -->
 				</section>
 				<section>
 					<h4>Introduction</h4>
@@ -213,15 +215,16 @@
 					</ul>
 				</section>
 				<section>
-					<h4>Efficient Loop Closure for Neural SLAM</h4>
-					<h1></h1>
+					<h1>Efficient Loop Closure for Neural SLAM</h1>
 					<ul>
-						<li>placeholder</li>
+						<li>Idea: attach lightweight neural fields to pose graph of sparse visual SLAM</li>
+						<li>Each field captures scene within a fixed radius $r$</li>
+						<li></li>
 					</ul>
 				</section>
 				<section>
 					<h4>Efficient Loop Closure for Neural SLAM</h4>
-					<h2></h2>
+					<h1></h1>
 					<ul>
 						<li>placeholder</li>
 					</ul>
@@ -269,18 +272,6 @@
 				</section>
 				<section>
 					<h1>Future</h1>
-					<h2>Object-based / Interactive Map Decomposition</h2>
-					<ul>
-						<li>Scenes learned in this way are not interactive
-							<ul>
-								<li>Objects cannot be interacted with</li>
-								<li>Lighting is baked in</li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-				<section>
-					<h1>Future</h1>
 					<h2>Gaussian Splatting</h2>
 					<ul>
 						<li>Allows significantly faster rendering than neural fields via rasterization (100 FPS)</li>
@@ -288,6 +279,18 @@
 						<li>Quality still slightly worse than Zip-NeRF</li>
 					</ul>
 					https://lumalabs.ai/featured
+				</section>
+				<section>
+					<h1>Future</h1>
+					<h2>Object-based / Interactive Map Decomposition</h2>
+					<ul>
+						<li>Scenes learned in this way are not interactive
+						<li>Objects cannot be interacted with</li>
+						<li>Lighting and shadows are baked in</li>
+							<ul>
+								<li>Some work in this direction: LERF, GARField</li>
+							</ul>
+					</ul>
 				</section>
 
 			</div>
