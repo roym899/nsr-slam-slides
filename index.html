@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Neural Scene Representations</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
@@ -17,62 +17,72 @@
 		<div class="reveal">
 			<div class="slides">
 
-				<section>
+				<section data-auto-animate>
 					<h1>Overview</h1>
 					<h2></h2>
 					<ul>
 						<li>Introduction: neural fields, NeRFs, etc.</li> <!-- 10 minutes -->
+						<br />
 						<li>Neural scene representations for SLAM</li> <!-- 10 minutes -->
+						<br />
 						<li>Efficient loop closure in neural SLAM</li>  <!-- 10 minutes -->
+						<br />
 						<li>Open research problems</li> <!-- 10 minutes -->
 					</ul>
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h4>Introduction</h4>
 					<h1>Shape and Scene Representations</h1>
 					<h2></h2>
 					<ul>
 						<li>Various shape / scene representations exist</li>
-						<li>Surface representations
+						<li class="fragment" data-fragment-index="2">Surface representations
 							<ul>
-								<li>Store surface position and quantities on surface</li>
-								<li>Examples
+								<li class="fragment" data-fragment-index="2">Store surface position and quantities on surface</li>
+								<li class="fragment" data-fragment-index="2">Examples
 									<ul>
-										<li>Meshes</li>
-										<li>Point clouds</li>
+										<li class="fragment" data-fragment-index="2">Meshes</li>
+										<li class="fragment" data-fragment-index="3">Point clouds</li>
 									</ul>
 								</li>
 							</ul>
 						</li>
-						<li>Volumetric representations
+						<li class="fragment" data-fragment-index="4">Volumetric representations
 							<ul>
-								<li>Store quantities in volume</li>
-								<li>Examples
+								<li class="fragment" data-fragment-index="4">Store quantities in volume</li>
+								<li class="fragment" data-fragment-index="4">Examples
 									<ul>
-										<li>Voxel grid (dense, octrees, voxel hashing)</li>
-										<li>Neural fields</li>
-										<li>Set of Gaussians</li>
+										<li class="fragment" data-fragment-index="4">Voxel grid (dense, octrees, voxel hashing)</li>
+										<li class="fragment" data-fragment-index="5">Neural fields</li>
+										<li class="fragment" data-fragment-index="6">Set of Gaussians</li>
 									</ul>
 								</li>
 							</ul>
 						</li>
 					</ul>
+					<img class="fragment fade-in-then-out" data-fragment-index="2" style="position: absolute; top: 400px; left: 1300px" src="assets/mesh.png" width="400px">
+					<img class="fragment fade-in-then-out" data-fragment-index="3" style="position: absolute; top: 400px; left: 1300px" src="assets/pointcloud.png" width="400px">
+					<img class="fragment fade-in-then-out" data-fragment-index="4" style="position: absolute; top: 400px; left: 1300px" src="assets/octree.jpg" width="400px">
+					<img class="fragment fade-in-then-out" data-fragment-index="5" style="position: absolute; top: 400px; left: 1100px" src="assets/deepsdf.png" width="600px">
+					<!-- mesh Robust Visibility Surface Determination in Object Space via Plücker Coordinates -->
+					<!-- pointcloud source Analyzing the Squared Distance-to-Measure Gradient Flow System with k-Order Voronoi Diagrams -->
 					<!--Octree source https://developer.download.nvidia.com/books/gpugems2/37_octree_03.jpg -->
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h4>Introduction</h4>
 					<h1>Neural Fields</h1>
 					<h2></h2>
 					<ul>
-						<li>Core idea: represent 3D shape by a simple neural network</li>
+						<li>Core idea: represent 3D shape by a simple neural network
 						\[
 						\begin{aligned}
 						f: \mathbb{R}^{3} &\to \mathbb{R}^3\times\mathbb{R}\\
 						\boldsymbol{x}&\mapsto (\boldsymbol{c}, \rho)
 						\end{aligned}
 						\]
-						<li>Map 3D point $\boldsymbol{x}$ to quantity $\rho$ (e.g., SDF, occupancy, color, etc.)</li>
-						<li>Properties
+						</li>
+						<li class="fragment" data-fragment-index="2">Map 3D point $\boldsymbol{x}$ to quantity $\rho$ (e.g., SDF, occupancy, color, etc.)</li>
+						<li class="fragment" data-fragment-index="3">Properties
 							<ul>
 								<li>Continuous</li>
 								<li>Differentiable</li>
@@ -80,8 +90,14 @@
 							</ul>
 						</li>
 					</ul>
+					<div style="position: absolute; top: 200px; left: 1300px">
+						<img src="assets/staircase.gif" width="500px">
+						<br />
+						<img src="assets/staircase_sdf.gif" width="500px">
+					</div>
+					<!-- <img style="position: absolute; top: 150px; right: 20px;" src="assets/staircase.gif" width="25%"> -->
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h4>Introduction</h4>
 					<h1>Neural Scene Representations</h1>
 					<h2>Early Works</h2>
@@ -98,12 +114,10 @@
 					</ul>
 					<br />
 					<img style="margin-left:200px" src="assets/deepsdf.png" width="25%">
-					<video style="margin-left: 200px" width="40%">
-						<source data-autoplay loop data-src="assets/deepsdf_interpolation.webm">
-					</video>
+					<video data-autoplay loop style="margin-left: 200px" width="40%" data-src="assets/deepsdf_interpolation.webm" />
 					<!-- video source https://www.youtube.com/watch?v=C_XNdGGs6qM -->
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h4>Introduction</h4>
 					<h1>Neural Scene Representations</h1>
 					<h2>Neural Radiance Field (NeRF)</h2>
@@ -117,36 +131,121 @@
 						(\boldsymbol{x}, \boldsymbol{d})&\mapsto (\boldsymbol{c}, \sigma)
 						\end{aligned}
 						\]
-						<li>Fit 3D scene through volume rendering and analysis-by-synthesis</li>
 					</ul>
+					<br />
+					<br />
+					<img style="margin-left:200px" src="assets/nerf_overview.png" width="75%">
 				</section>
-				<section>
+				<section data-auto-animate>
+					<section data-auto-animate>
 					<h4>Introduction</h4>
 					<h1>Neural Scene Representations</h1>
 					<h2>Neural Radiance Field (NeRF)</h2>
 					<ul>
-						<li>NeRF Examples</li>
-						<li>Limitations
-							<ul>
-								<li>Mainly limited to small forward-facing scenes</li>
-								<li>Isolevel for surfaces not well-defined</li>
-								<li>Optimization time (~hours)</li>
-								<li>Rendering time (~seconds for single 1080p frame)</li>
-							</ul>
+						<li>NeRF Examples<br />
+							<video loop style="" height="400px">
+								<source data-autoplay data-src="assets/nerf_1.mp4">
+							</video>
+							<video loop style="" height="400px">
+								<source data-autoplay data-src="assets/nerf_2.mp4">
+							</video>
+							<video loop style="" height="400px">
+								<source data-autoplay data-src="assets/nerf_3.mp4">
+							</video>
+							<span class="fragment fade-in">
+								<video data-autoplay loop height="400px" data-src="assets/nerf_depth.mp4" />
+							</span>
 						</li>
 					</ul>
+					</section>
+					<section data-auto-animate>
+						<h4>Introduction</h4>
+						<h1>Neural Scene Representations</h1>
+						<h2>Neural Radiance Field (NeRF)</h2>
+						<ul>
+							<li>NeRF Examples<br />
+								<video loop style="" height="250px">
+									<source data-autoplay data-src="assets/nerf_1.mp4">
+								</video>
+								<video loop style="" height="250px">
+									<source data-autoplay data-src="assets/nerf_2.mp4">
+								</video>
+								<video loop style="" height="250px">
+									<source data-autoplay data-src="assets/nerf_3.mp4">
+								</video>
+								<span>
+									<video data-autoplay loop height="250px" data-src="assets/nerf_depth.mp4" />
+								</span>
+							</li>
+							<li>Limitations
+								<ul>
+									<li>Mainly limited to small forward-facing scenes</li>
+									<li>Isolevel for surfaces not well-defined</li>
+									<li>Optimization time (~hours)</li>
+									<li>Rendering time (~seconds for single 1080p frame)</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
 				</section>
-				<section>
-					<h4>Introduction</h4>
-					<h1>Neural Scene Representations</h1>
-					<h2>Follow-up Works</h2>
-					<ul>
-						<li>Surfaces: NeuS</li>
-						<li>Speed: Instant Neural Graphics Primitives</li>
-						<li>Quality: Zip-NeRF</li>
-					</ul>
+				<section data-auto-animate>
+					<section data-auto-animate>
+						<h4>Introduction</h4>
+						<h1>Neural Scene Representations</h1>
+						<h2>Follow-up Works</h2>
+						<ul>
+							<li>Surfaces: NeuS <br />
+								<img src="assets/neus.png" height="600px">
+							</li>
+						</ul>
+					</section>
+					<section data-auto-animate>
+						<h4>Introduction</h4>
+						<h1>Neural Scene Representations</h1>
+						<h2>Follow-up Works</h2>
+						<ul>
+							<li>Surfaces: NeuS <br />
+								<img src="assets/neus.png" height="200px">
+							</li>
+							<li>Speed: Instant Neural Graphics Primitives<br />
+								<video loop data-autoplay height="500px" data-src="assets/ingp.mp4" />
+							</li>
+						</ul>
+					</section>
+					<section data-auto-animate>
+						<h4>Introduction</h4>
+						<h1>Neural Scene Representations</h1>
+						<h2>Follow-up Works</h2>
+						<ul>
+							<li>Surfaces: NeuS <br />
+								<img src="assets/neus.png" height="200px">
+							</li>
+							<li>Speed: Instant Neural Graphics Primitives<br />
+								<video loop data-autoplay height="200px" data-src="assets/ingp.mp4" />
+							</li>
+							<li>Quality: Zip-NeRF<br />
+							</li>
+							<video style="left: 800px; bottom: 570px;position: relative;" loop data-autoplay height="800px" data-src="assets/zipnerf.mp4" />
+						</ul>
+					</section>
+					<section data-auto-animate>
+						<h4>Introduction</h4>
+						<h1>Neural Scene Representations</h1>
+						<h2>Follow-up Works</h2>
+						<ul>
+							<li>Surfaces: NeuS <br />
+								<img src="assets/neus.png" height="200px">
+							</li>
+							<li>Speed: Instant Neural Graphics Primitives<br />
+								<video loop data-autoplay height="200px" data-src="assets/ingp.mp4" />
+							</li>
+							<li>Quality: Zip-NeRF<br />
+							</li>
+							<video style="left: 0; top: 0;position: relative;" loop data-autoplay height="200px" data-src="assets/zipnerf.mp4" />
+						</ul>
+					</section>
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h4>Neural Scene Representations for SLAM</h4>
 					<h1>Dense Visual SLAM</h1>
 					<h2></h2>
@@ -154,23 +253,25 @@
 						<li>Visual Simultaneous Localization and Mapping (SLAM)
 							<ul>
 								<li>Estimate camera trajectory from moving camera</li>
-								<li>Often uses sparse keypoint-based maps</li>
+								<li>Sparse keypoint-based maps</li>
 							</ul>
 						</li>
-						<li>Dense visual SLAM
+						<li  class="fragment">Dense visual SLAM
 							<ul>
 								<li>Estimate dense 3D scene representation during localization (e.g., mesh)</li>
-								<li>Often uses RGB-D data</li>
-								<li>Often uses volumetric scene representation
+								<li>RGB-D data</li>
+								<li>Volumetric scene representation
 									<ul>
 										<li>Classic approaches use voxel grids to represent 3D scene</li>
 									</ul>
 								</li>
 							</ul>
+							<video data-autoplay loop style="left: 0px; top: 50px; position: relative;" height="300px" data-src="assets/slam_input.mp4"></video>
+							<video data-autoplay loop style="left: 100px; top: 50px; position: relative;" height="400px" data-src="assets/slam_output.mp4"></video>
 						</li>
 					</ul>
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h4>Neural Scene Representations for SLAM</h4>
 					<h1>iMAP</h1>
 					<h2></h2>
@@ -184,10 +285,12 @@
 								<li>Depth supervision</li>
 							</ul>
 						</li>
-						<li>Limitation: continuous reoptimization of previous areas required to prevent forgetting</li>
+						<img  class="fragment" data-fragment-index="2" src="assets/imap.gif" height="400px">
+
+						<li  class="fragment" data-fragment-index="3" >Limitation: continuous reoptimization of previous areas required to prevent forgetting</li>
 					</ul>
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h4>Neural Scene Representations for SLAM</h4>
 					<h1>NICE-SLAM</h1>
 					<h2></h2>
@@ -195,7 +298,7 @@
 						<li>Replaces single MLP by combination of feature grid and frozen, pretrained decoder<br/>$\to$ No more forgetting</li>
 					</ul>
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h4>Neural Scene Representations for SLAM</h4>
 					<h1>Follow-up Works</h1>
 					<h2></h2>
@@ -205,7 +308,7 @@
 						<li>GO-SLAM</li>
 					</ul>
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h4>Neural Scene Representations for SLAM</h4>
 					<h1>Common Limitation: Monolithic Field</h1>
 					<h2></h2>
@@ -226,7 +329,7 @@
 						</li>
 					</ul>
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h1>Efficient Loop Closure for Neural SLAM</h1>
 					<ul>
 						<li>Idea: attach lightweight neural fields to pose graph of sparse visual SLAM</li>
@@ -234,21 +337,17 @@
 						<li></li>
 					</ul>
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h4>Efficient Loop Closure for Neural SLAM</h4>
 					<h1>Example</h1>
-					<ul>
-						<li>placeholder</li>
-					</ul>
+					<video style="left: 0; top: 0;position: relative;" loop data-autoplay height="850px" data-src="assets/ngm_scannet.mp4" />
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h4>Efficient Loop Closure for Neural SLAM</h4>
 					<h1>Another Example</h1>
-					<ul>
-						<li>placeholder</li>
-					</ul>
+					<video style="left: 0; top: 0;position: relative;" loop data-autoplay height="600px" data-src="assets/ngm_apartment0_cut.mp4" />
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h4>Efficient Loop Closure for Neural SLAM</h4>
 					<h1>Comparison to Monolithic Approaches</h1>
 
@@ -256,7 +355,7 @@
 						<li>TODO? what to put here?</li>
 					</ul>
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h4>Efficient Loop Closure for Neural SLAM</h4>
 					<h1>Outlook</h1>
 					<ul>
@@ -285,7 +384,7 @@
 						</li>
 					</ul>
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h1>Future</h1>
 					<h2>Learning vs Optimization</h2>
 					<ul>
@@ -303,26 +402,30 @@
 						</li>
 					</ul>
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h1>Future</h1>
 					<h2>Gaussian Splatting</h2>
 					<ul>
-						<li>Allows significantly faster rendering than neural fields via rasterization (100 FPS)</li>
-						<li>Memory-efficiency and geometry slightly worse than for functional neural field approaches</li>
-						<li>Quality still slightly worse than Zip-NeRF</li>
+						<li>Represent scene by a set of 3D Gaussians instead of neural field</li>
+						<li>Allows significantly faster rendering (100 FPS) because Gaussians can be rasterized </li>
 					</ul>
 					https://lumalabs.ai/featured
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h1>Future</h1>
 					<h2>Object-based / Interactive Map Decomposition</h2>
 					<ul>
 						<li>Scenes learned in this way are not interactive
-						<li>Objects cannot be interacted with</li>
-						<li>Lighting and shadows are baked in</li>
 							<ul>
-								<li>Some work in this direction: LERF, GARField</li>
+								<li>Objects are not separated; and note complete</li>
+								<li>Reflections are baked in</li>
+								<li>Shadows are baked in</li>
 							</ul>
+						<li>Some early work in this direction: LERF, GARField
+							<br />
+							<video data-autoplay loop style="left: 0px; top: 50px; position: relative;" height="500px" data-src="assets/lerf.mp4"></video>
+							<video data-autoplay loop style="left: 50px; top: 50px; position: relative;" height="500px" data-src="assets/garfield_su.mp4"></video>
+						</li>
 					</ul>
 				</section>
 
@@ -352,6 +455,9 @@
 							  transitionSpeed: 'fast',
 							  includeNodes: false,
 							  autoPlayMedia: true,
+							  navigationMode: 'linear',
+							  autoAnimateDuration: 0.3,
+							  autoAnimateEasing: 'ease',
 
 							  // Learn about plugins: https://revealjs.com/plugins/
 							  plugins: [ RevealMarkdown, RevealHighlight, RevealMath.KaTeX ]

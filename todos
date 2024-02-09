@@ -1,35 +1,29 @@
-Slide 2
-- Add figures
-Slide 3
-- Add figure
-Slide 5
-- Add figures
-Slide 6
-- Add figures
-Slide 7
-- Add figures + maybe more?
-Slide 8
-- Add figures
-Slide 9
-- Add figures
 Slide 10
 - Add figures
 Slide 11
 - Add figures + maybe more?
 Slide 13
 - Add animation figure + example figure
-Slide 14
-- not sure what to put
-Slide 15
-- Add video
 Slide 16
-- Add video
+- Put figure and some thoughts
 Slide 18
 - Add ReconFusion figures
 Slide 19
 - Add Gaussian splatting figures 
-Slide 20
-- Add LERF and GARField vis
+
+- footnote for all sources
+- proper kth style
+
+
+if time:
+ - regenerate blender animations
+ - regenerate apartment0 video
+ - improve apartment 0 video
 
 Done
-Slide 1, Slide 4, Slide 12, Slide 17
+Slide 1, Slide 2, Slide 3, Slide 4, Sldie 5
+Slide 6, Sldie 7, Slide 8, Slide 9
+Slide 12, Slide 14, Slide 15
+Slide 17, Slide 20
+
+Total: 14
