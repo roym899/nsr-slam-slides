@@ -74,12 +74,12 @@
 					<h2></h2>
 					<ul>
 						<li>Core idea: represent 3D shape by a simple neural network
-						\[
-						\begin{aligned}
-						f: \mathbb{R}^{3} &\to \mathbb{R}^3\times\mathbb{R}\\
-						\boldsymbol{x}&\mapsto (\boldsymbol{c}, \rho)
-						\end{aligned}
-						\]
+							\[
+							\begin{aligned}
+							f: \mathbb{R}^{3} &\to \mathbb{R}^3\times\mathbb{R}\\
+							\boldsymbol{x}&\mapsto (\boldsymbol{c}, \rho)
+							\end{aligned}
+							\]
 						</li>
 						<li class="fragment" data-fragment-index="2">Map 3D point $\boldsymbol{x}$ to quantity $\rho$ (e.g., SDF, occupancy, color, etc.)</li>
 						<li class="fragment" data-fragment-index="3">Properties
@@ -115,7 +115,7 @@
 					<br />
 					<img style="margin-left:200px" src="assets/deepsdf.png" width="25%">
 					<video data-autoplay loop style="margin-left: 200px" width="40%" data-src="assets/deepsdf_interpolation.webm" />
-					<!-- video source https://www.youtube.com/watch?v=C_XNdGGs6qM -->
+						<!-- video source https://www.youtube.com/watch?v=C_XNdGGs6qM -->
 				</section>
 				<section data-auto-animate>
 					<h4>Introduction</h4>
@@ -138,25 +138,25 @@
 				</section>
 				<section data-auto-animate>
 					<section data-auto-animate>
-					<h4>Introduction</h4>
-					<h1>Neural Scene Representations</h1>
-					<h2>Neural Radiance Field (NeRF)</h2>
-					<ul>
-						<li>NeRF Examples<br />
-							<video loop style="" height="400px">
-								<source data-autoplay data-src="assets/nerf_1.mp4">
-							</video>
-							<video loop style="" height="400px">
-								<source data-autoplay data-src="assets/nerf_2.mp4">
-							</video>
-							<video loop style="" height="400px">
-								<source data-autoplay data-src="assets/nerf_3.mp4">
-							</video>
-							<span class="fragment fade-in">
-								<video data-autoplay loop height="400px" data-src="assets/nerf_depth.mp4" />
-							</span>
-						</li>
-					</ul>
+						<h4>Introduction</h4>
+						<h1>Neural Scene Representations</h1>
+						<h2>Neural Radiance Field (NeRF)</h2>
+						<ul>
+							<li>NeRF Examples<br />
+								<video loop style="" height="400px">
+									<source data-autoplay data-src="assets/nerf_1.mp4">
+								</video>
+								<video loop style="" height="400px">
+									<source data-autoplay data-src="assets/nerf_2.mp4">
+								</video>
+								<video loop style="" height="400px">
+									<source data-autoplay data-src="assets/nerf_3.mp4">
+								</video>
+								<span class="fragment fade-in">
+									<video data-autoplay loop height="400px" data-src="assets/nerf_depth.mp4" />
+								</span>
+							</li>
+						</ul>
 					</section>
 					<section data-auto-animate>
 						<h4>Introduction</h4>
@@ -297,7 +297,7 @@
 						<h2></h2>
 						<ul>
 							<li>Replaces single MLP by combination of feature grid and frozen, pretrained decoder
-							  <br />$\to$ No more forgetting, better scalability
+								<br />$\to$ No more forgetting, better scalability
 							</li>
 						</ul>
 						<img src="assets/niceslam.png" height="600px">
@@ -308,7 +308,7 @@
 						<h2></h2>
 						<ul>
 							<li>Replaces single MLP by combination of feature grid and frozen, pretrained decoder
-							  <br />$\to$ No more forgetting, better scalability
+								<br />$\to$ No more forgetting, better scalability
 							</li>
 						</ul>
 						<video data-autoplay loop style="left: 0px; top: 0;position: relative;" height="850px" data-src="assets/niceslam.mp4" />
@@ -345,7 +345,7 @@
 						<h4>Neural Scene Representations for SLAM</h4>
 						<h1>Follow-up Works</h1>
 						<h2></h2>
-						<ul style="width: 100%">  
+						<ul style="width: 100%">
 							<li>ESLAM: triplane encoding
 								<br />
 								<img src="assets/eslam.jpg" height="150px">
@@ -357,7 +357,7 @@
 							<li>GO-SLAM: loop closure via reoptimization
 								<br />
 								<img style="position: relative; left: 850px; top: -200px;"
-								src="assets/goslam.png" height="450" />
+			 src="assets/goslam.png" height="450" />
 							</li>
 						</ul>
 					</section>
@@ -365,7 +365,7 @@
 						<h4>Neural Scene Representations for SLAM</h4>
 						<h1>Follow-up Works</h1>
 						<h2></h2>
-						<ul style="width: 100%">  
+						<ul style="width: 100%">
 							<li>ESLAM: triplane encoding
 								<br />
 								<img src="assets/eslam.jpg" height="150px">
@@ -377,7 +377,7 @@
 							<li>GO-SLAM: loop closure via reoptimization
 								<br />
 								<img style="position: relative; left: 0px; top: 0px;"
-								src="assets/goslam.png" height="150" />
+			 src="assets/goslam.png" height="150" />
 							</li>
 						</ul>
 					</section>
@@ -481,9 +481,9 @@
 					<h1>Outlook</h1>
 					<ul>
 						<li>Higher memory usage compared to monolithic neural field methods</li>
-							<ul>
-								<li>How to reduce memory requirements?</li>
-							</ul>
+						<ul>
+							<li>How to reduce memory requirements?</li>
+						</ul>
 						</li>
 						<br />
 						<li>Neural field-based map not used for SLAM currently
@@ -506,28 +506,33 @@
 					</ul>
 				</section>
 				<section data-auto-animate>
-					<h1>Future</h1>
-					<h2>Learning vs Optimization</h2>
-					<ul>
-						<li>Optimization-based approaches inherently limited to what is captured by sensors
-							<ul>
-								<li>Sufficient for elaborate sensor setups and human operator</li>
-								<li>However, far from human-level spatial understanding (infilling / etc.)</li>
-							</ul>
-						</li>
-						<li>Learning approaches might infill from partial observations</li>
-						<li>How to combine strong generative model with partial observations?
-							<ul>
-								<li>Some work in this direction: ReconFusion</li>
-							</ul>
-						</li>
-					</ul>
+					<section data-auto-animate>
+						<h1>Future</h1>
+						<h2>Learning vs Optimization</h2>
+						<ul>
+							<li>Optimization-based approaches inherently limited to what is captured by sensors
+								<ul>
+									<li>Sufficient for elaborate sensor setups and human operator</li>
+									<li>However, far from human-level spatial understanding (infilling / etc.)</li>
+								</ul>
+							</li>
+							<li>Learning approaches might infill from partial observations</li>
+							<li class="fragment" data-fragment-index="1">How to combine strong generative model with partial observations?
+								<ul class="fragment" data-fragment-index="2">
+									<li>Some work in this direction: ReconFusion<br />
+									</li>
+								</ul>
+							</li>
+						</ul>
+						<img class="fragment" data-fragment-index="2" style="left: 0px; top: 50px; position: relative;" height="400px" data-src="assets/reconfusion.png" />
+						<video class="fragment" data-fragment-index="3" data-autoplay loop style="left: 100px; top: 50px; position: relative;" height="400px" data-src="assets/reconfusion_example.mp4"></video>
+					</section>
 				</section>
 				<section data-auto-animate>
 					<h1>Future</h1>
 					<h2>Gaussian Splatting</h2>
 					<ul>
-						<li>Represent scene by a set of 3D Gaussians instead of neural field</li>
+						<li>Represent scene by a set of 3D Gaussians instead of differentiable function</li>
 						<li>Allows significantly faster rendering (100 FPS) because Gaussians can be rasterized </li>
 					</ul>
 					https://lumalabs.ai/featured
@@ -542,11 +547,11 @@
 								<li>Reflections are baked in</li>
 								<li>Shadows are baked in</li>
 							</ul>
-						<li>Some early work in this direction: LERF, GARField
-							<br />
-							<video data-autoplay loop style="left: 0px; top: 50px; position: relative;" height="500px" data-src="assets/lerf.mp4"></video>
-							<video data-autoplay loop style="left: 50px; top: 50px; position: relative;" height="500px" data-src="assets/garfield_su.mp4"></video>
-						</li>
+							<li>Some early work in this direction: LERF, GARField
+								<br />
+								<video data-autoplay loop style="left: 0px; top: 50px; position: relative;" height="500px" data-src="assets/lerf.mp4"></video>
+								<video data-autoplay loop style="left: 50px; top: 50px; position: relative;" height="500px" data-src="assets/garfield_su.mp4"></video>
+							</li>
 					</ul>
 				</section>
 
