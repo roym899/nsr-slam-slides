@@ -315,43 +315,148 @@
 					</section>
 				</section>
 				<section data-auto-animate>
-					<h4>Neural Scene Representations for SLAM</h4>
-					<h1>Follow-up Works</h1>
-					<h2></h2>
-					<ul>
-						<li>Triplane encoding: ESLAM</li>
-						<li>Hash encoding: Co-SLAM</li>
-						<li>Hash encoding + DROID-SLAM: GO-SLAM</li>
-					</ul>
+					<section data-auto-animate>
+						<h4>Neural Scene Representations for SLAM</h4>
+						<h1>Follow-up Works</h1>
+						<h2></h2>
+						<ul style="width: 100%">
+							<li>ESLAM: triplane encoding
+								<br />
+								<img src="assets/eslam.jpg" height="800px">
+							</li>
+						</ul>
+					</section>
+					<section data-auto-animate>
+						<h4>Neural Scene Representations for SLAM</h4>
+						<h1>Follow-up Works</h1>
+						<h2></h2>
+						<ul style="width: 100%">
+							<li>ESLAM: triplane encoding
+								<br />
+								<img src="assets/eslam.jpg" height="150px">
+							</li>
+							<li>Co-SLAM: joint hash / coordinate encoding
+								<br />
+								<img src="assets/coslam.png" height="550px" />
+							</li>
+						</ul>
+					</section>
+					<section data-auto-animate>
+						<h4>Neural Scene Representations for SLAM</h4>
+						<h1>Follow-up Works</h1>
+						<h2></h2>
+						<ul style="width: 100%">  
+							<li>ESLAM: triplane encoding
+								<br />
+								<img src="assets/eslam.jpg" height="150px">
+							</li>
+							<li>Co-SLAM: joint hash / coordinate encoding
+								<br />
+								<img src="assets/coslam.png" height="150px" />
+							</li>
+							<li>GO-SLAM: loop closure via reoptimization
+								<br />
+								<img style="position: relative; left: 850px; top: -200px;"
+								src="assets/goslam.png" height="450" />
+							</li>
+						</ul>
+					</section>
+					<section data-auto-animate>
+						<h4>Neural Scene Representations for SLAM</h4>
+						<h1>Follow-up Works</h1>
+						<h2></h2>
+						<ul style="width: 100%">  
+							<li>ESLAM: triplane encoding
+								<br />
+								<img src="assets/eslam.jpg" height="150px">
+							</li>
+							<li>Co-SLAM: joint hash / coordinate encoding
+								<br />
+								<img src="assets/coslam.png" height="150px" />
+							</li>
+							<li>GO-SLAM: loop closure via reoptimization
+								<br />
+								<img style="position: relative; left: 0px; top: 0px;"
+								src="assets/goslam.png" height="150" />
+							</li>
+						</ul>
+					</section>
 				</section>
 				<section data-auto-animate>
 					<h4>Neural Scene Representations for SLAM</h4>
 					<h1>Common Limitation: Monolithic Field</h1>
 					<h2></h2>
 					<ul>
-						<li>Neural fields are expensive to optimize</li>
+						<li>All methods use a single monolithic data structure</li>
+						<br />
+						<li>Expensive to optimize neural fields</li>
+						<br />
 						<li>Sensor data gets baked into a data structure
 							<ul>
 								<li>Similar to classic voxel-based data structures</li>
 							</ul>
 						</li>
+						<br />
 						<li>Cannot easily deform volumetric scene representation on loop closure
 							<ul>
-								<li>Typically requires to reintegrate data in some way<br />
-									$\to$ The larger the loop, the more reintegration is required
+								<li>GO-SLAM has to reintegrate all keyframes that have moved on loop closure<br />
+									$\to$ The larger the loop, the more reoptimization is required
 
 								</li>
 							</ul>
 						</li>
 					</ul>
 				</section>
-				<section data-auto-animate>
-					<h1>Efficient Loop Closure for Neural SLAM</h1>
-					<ul>
-						<li>Idea: attach lightweight neural fields to pose graph of sparse visual SLAM</li>
-						<li>Each field captures scene within a fixed radius $r$</li>
-						<li></li>
-					</ul>
+				<section>
+					<section>
+						<h1>Efficient Loop Closure for Neural SLAM</h1>
+						<ul>
+							<li>Idea: attach lightweight neural fields to pose graph of sparse visual SLAM</li>
+							<li>Each field captures scene within a fixed radius $r$</li>
+						</ul>
+						<img style="position: relative; top: 70px;" src="assets/ngm_anim_0.png" height="700px">
+					</section>
+					<section data-transition="none">
+						<h1>Efficient Loop Closure for Neural SLAM</h1>
+						<ul>
+							<li>Idea: attach lightweight neural fields to pose graph of sparse visual SLAM</li>
+							<li>Each field captures scene within a fixed radius $r$</li>
+						</ul>
+						<img style="position: relative; top: 70px;" src="assets/ngm_anim_1.png" height="700px">
+					</section>
+					<section data-transition="none">
+						<h1>Efficient Loop Closure for Neural SLAM</h1>
+						<ul>
+							<li>Idea: attach lightweight neural fields to pose graph of sparse visual SLAM</li>
+							<li>Each field captures scene within a fixed radius $r$</li>
+						</ul>
+						<img style="position: relative; top: 70px;" src="assets/ngm_anim_2.png" height="700px">
+					</section>
+					<section data-transition="none">
+						<h1>Efficient Loop Closure for Neural SLAM</h1>
+						<ul>
+							<li>Idea: attach lightweight neural fields to pose graph of sparse visual SLAM</li>
+							<li>Each field captures scene within a fixed radius $r$</li>
+						</ul>
+						<img style="position: relative; top: 70px;" src="assets/ngm_anim_3.png" height="700px">
+					</section>
+					<section data-auto-animate data-transition="none">
+						<h1>Efficient Loop Closure for Neural SLAM</h1>
+						<ul>
+							<li>Idea: attach lightweight neural fields to pose graph of sparse visual SLAM</li>
+							<li>Each field captures scene within a fixed radius $r$</li>
+						</ul>
+						<img style="position: relative; top: 70px;" src="assets/ngm_anim_4.png" height="700px">
+					</section>
+					<section data-auto-animate>
+						<h1>Efficient Loop Closure for Neural SLAM</h1>
+						<ul>
+							<li>Idea: attach lightweight neural fields to pose graph of sparse visual SLAM</li>
+							<li>Each field captures scene within a fixed radius $r$</li>
+						</ul>
+						<img style="position: relative; top: 70px;" src="assets/ngm_anim_4.png" height="700px">
+						<img style="position: relative; top: 70px; left: 300px;" src="assets/ngm_example.png" height="700px">
+					</section>
 				</section>
 				<section data-auto-animate>
 					<h4>Efficient Loop Closure for Neural SLAM</h4>
