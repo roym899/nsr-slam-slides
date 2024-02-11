@@ -59,6 +59,10 @@ video::-webkit-media-controls-panel {
 display: none !important;
 opacity: 1 !important;}
 
+.slides section {
+	height: 100%;
+}
+
 .slides section .fragment { 
 opacity: 0; 
 visibility: hidden; 

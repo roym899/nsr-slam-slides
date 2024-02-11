@@ -60,12 +60,15 @@
 							</ul>
 						</li>
 					</ul>
+
 					<img class="fragment fade-in-then-out" data-fragment-index="2" style="position: absolute; top: 400px; left: 1300px" src="assets/mesh.png" width="400px">
 					<img class="fragment fade-in-then-out" data-fragment-index="3" style="position: absolute; top: 400px; left: 1300px" src="assets/pointcloud.png" width="400px">
 					<img class="fragment fade-in-then-out" data-fragment-index="4" style="position: absolute; top: 400px; left: 1300px" src="assets/octree.jpg" width="400px">
 					<img class="fragment fade-in-then-out" data-fragment-index="5" style="position: absolute; top: 400px; left: 1100px" src="assets/deepsdf.png" width="600px">
-					<!-- mesh Robust Visibility Surface Determination in Object Space via Plücker Coordinates -->
-					<!-- pointcloud source Analyzing the Squared Distance-to-Measure Gradient Flow System with k-Order Voronoi Diagrams -->
+					<div class="fragment fade-in-then-out" data-fragment-index="2" style="position: absolute; bottom: 0px; left: 0px; text-align: left; font-size: 0.6em; color: gray">Image source: Robust Visibility Surface Determination in Object Space via Plücker Coordinates, Rossi et al., 2021</div>
+					<div class="fragment fade-in-then-out" data-fragment-index="3" style="position: absolute; bottom: 0px; left: 0px; text-align: left; font-size: 0.6em; color: gray">Image source: Analyzing the Squared Distance-to-Measure Gradient Flow System with k-Order Voronoi Diagrams, O'Neil and Wanner, 2019</div>
+					<div class="fragment fade-in-then-out" data-fragment-index="4" style="position: absolute; bottom: 0px; left: 0px; text-align: left; font-size: 0.6em; color: gray">Image source: GPU Gems 2, Chapter 37, Octree Textures on the GPU, Lefebvre et al., 2005</div>
+					<div class="fragment fade-in-then-out" data-fragment-index="5" style="position: absolute; bottom: 0px; left: 0px; text-align: left; font-size: 0.6em; color: gray">Image source: DeepSDF: Learning Continuous Signed Distance Functions for Shape Representation, Park et al., 2019</div>
 					<!--Octree source https://developer.download.nvidia.com/books/gpugems2/37_octree_03.jpg -->
 				</section>
 				<section data-auto-animate>
@@ -103,7 +106,7 @@
 					<h2>Early Works</h2>
 					<ul>
 						<li>Trained using direct 3D supervision (i.e., from mesh collections)</li>
-						<li>DeepSDF, occupancy network, ...</li>
+						<li>DeepSDF [1], occupancy network [2], ...</li>
 						<li>Demonstrate shape interpolation by adding additional latent input</li>
 						\[
 						\begin{aligned}
@@ -113,9 +116,9 @@
 						\]
 					</ul>
 					<br />
-					<img style="margin-left:200px" src="assets/deepsdf.png" width="25%">
-					<video data-autoplay loop style="margin-left: 200px" width="40%" data-src="assets/deepsdf_interpolation.webm" />
-						<!-- video source https://www.youtube.com/watch?v=C_XNdGGs6qM -->
+					<img style="margin-left:200px" src="assets/deepsdf.png" height="300px">
+					<video data-autoplay loop style="margin-left: 200px" height="300px" data-src="assets/deepsdf_interpolation.webm"></video>
+					<div style="position: absolute; bottom: 0px; left: 0px; text-align: left; font-size: 0.6em; color: gray">[1] DeepSDF: Learning Continuous Signed Distance Functions for Shape Representation, Park et al., 2019<br />[2] Occupancy Networks: Learning 3D Reconstruction in Function Space, Mescheder et al., 2019<br />Video source: https://www.youtube.com/watch?v=C_XNdGGs6qM </div>
 				</section>
 				<section data-auto-animate>
 					<h4>Introduction</h4>
@@ -135,6 +138,7 @@
 					<br />
 					<br />
 					<img style="margin-left:200px" src="assets/nerf_overview.png" width="75%">
+					<div style="position: absolute; bottom: 0px; left: 0px; text-align: left; font-size: 0.6em; color: gray">NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis, Mildenhall et al., 2020</div>
 				</section>
 				<section data-auto-animate>
 					<section data-auto-animate>
@@ -143,17 +147,17 @@
 						<h2>Neural Radiance Field (NeRF)</h2>
 						<ul>
 							<li>NeRF Examples<br />
-								<video loop style="" height="400px">
+								<video loop style="" height="350px">
 									<source data-autoplay data-src="assets/nerf_1.mp4">
 								</video>
-								<video loop style="" height="400px">
+								<video loop style="" height="350px">
 									<source data-autoplay data-src="assets/nerf_2.mp4">
 								</video>
-								<video loop style="" height="400px">
+								<video loop style="" height="350px">
 									<source data-autoplay data-src="assets/nerf_3.mp4">
 								</video>
 								<span class="fragment fade-in">
-									<video data-autoplay loop height="400px" data-src="assets/nerf_depth.mp4" />
+									<video data-autoplay loop height="350px" data-src="assets/nerf_depth.mp4" />
 								</span>
 							</li>
 						</ul>
@@ -187,6 +191,7 @@
 							</li>
 						</ul>
 					</section>
+					<div style="position: absolute; bottom: 0px; left: 0px; text-align: left; font-size: 0.6em; color: gray">NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis, Mildenhall et al., 2020</div>
 				</section>
 				<section data-auto-animate>
 					<section data-auto-animate>
@@ -194,55 +199,75 @@
 						<h1>Neural Scene Representations</h1>
 						<h2>Follow-up Works</h2>
 						<ul>
-							<li>Surfaces: NeuS <br />
+							<li>Surfaces: NeuS [1] <br />
 								<img src="assets/neus.png" height="600px">
 							</li>
 						</ul>
+						<div data-id="footnote" style="position: absolute; bottom: 0px; left: 0px; text-align: left; font-size: 0.6em; color: gray">
+							<div data-id="footnote-1">[1] NeuS: Learning Neural Implicit Surfaces by Volume Rendering for Multi-view Reconstruction, Wang et al., 2021</div>
+							<div style="opacity: 0%" data-id="footnote-2">[2] Instant Neural Graphics Primitives with a Multiresolution Hash Encoding, Müller et al., 2022</div>
+							<div style="opacity: 0%" data-id="footnote-3">[3] Zip-NeRF: Anti-Aliased Grid-Based Neural Radiance Fields, Barron et al., 2023</div>
+						</div>
 					</section>
 					<section data-auto-animate>
 						<h4>Introduction</h4>
 						<h1>Neural Scene Representations</h1>
 						<h2>Follow-up Works</h2>
 						<ul>
-							<li>Surfaces: NeuS <br />
-								<img src="assets/neus.png" height="200px">
+							<li>Surfaces: NeuS [1] <br />
+								<img src="assets/neus.png" height="150px">
 							</li>
-							<li>Speed: Instant Neural Graphics Primitives<br />
-								<video loop data-autoplay height="500px" data-src="assets/ingp.mp4" />
+							<li>Speed: Instant Neural Graphics Primitives [2]<br />
+								<video loop data-autoplay height="400px" data-src="assets/ingp.mp4" ></video>
 							</li>
 						</ul>
+						<div data-id="footnote" style="position: absolute; bottom: 0px; left: 0px; text-align: left; font-size: 0.6em; color: gray">
+							<div data-id="footnote-1">[1] NeuS: Learning Neural Implicit Surfaces by Volume Rendering for Multi-view Reconstruction, Wang et al., 2021</div>
+							<div data-id="footnote-2">[2] Instant Neural Graphics Primitives with a Multiresolution Hash Encoding, Müller et al., 2022</div>
+							<div style="opacity: 0%" data-id="footnote-3">[3] Zip-NeRF: Anti-Aliased Grid-Based Neural Radiance Fields, Barron et al., 2023</div>
+						</div>
 					</section>
 					<section data-auto-animate>
 						<h4>Introduction</h4>
 						<h1>Neural Scene Representations</h1>
 						<h2>Follow-up Works</h2>
 						<ul>
-							<li>Surfaces: NeuS <br />
-								<img src="assets/neus.png" height="200px">
+							<li>Surfaces: NeuS [1] <br />
+								<img src="assets/neus.png" height="150px">
 							</li>
-							<li>Speed: Instant Neural Graphics Primitives<br />
-								<video loop data-autoplay height="200px" data-src="assets/ingp.mp4" />
+							<li>Speed: Instant Neural Graphics Primitives [2]<br />
+								<video loop data-autoplay height="150px" data-src="assets/ingp.mp4" />
 							</li>
-							<li>Quality: Zip-NeRF<br />
+							<li>Quality: Zip-NeRF [3]<br />
 							</li>
-							<video style="left: 800px; bottom: 570px;position: relative;" loop data-autoplay height="800px" data-src="assets/zipnerf.mp4" />
+							<video style="left: 900px; bottom: 570px;position: relative;" loop data-autoplay height="700px" data-src="assets/zipnerf.mp4"></video>
 						</ul>
+						<div data-id="footnote" style="position: absolute; bottom: 0px; left: 0px; text-align: left; font-size: 0.6em; color: gray">
+							<div data-id="footnote-1">[1] NeuS: Learning Neural Implicit Surfaces by Volume Rendering for Multi-view Reconstruction, Wang et al., 2021</div>
+							<div data-id="footnote-2">[2] Instant Neural Graphics Primitives with a Multiresolution Hash Encoding, Müller et al., 2022</div>
+							<div data-id="footnote-3">[3] Zip-NeRF: Anti-Aliased Grid-Based Neural Radiance Fields, Barron et al., 2023</div>
+						</div>
 					</section>
 					<section data-auto-animate>
 						<h4>Introduction</h4>
 						<h1>Neural Scene Representations</h1>
 						<h2>Follow-up Works</h2>
 						<ul>
-							<li>Surfaces: NeuS <br />
-								<img src="assets/neus.png" height="200px">
+							<li>Surfaces: NeuS [1] <br />
+								<img src="assets/neus.png" height="150px">
 							</li>
-							<li>Speed: Instant Neural Graphics Primitives<br />
-								<video loop data-autoplay height="200px" data-src="assets/ingp.mp4" />
+							<li>Speed: Instant Neural Graphics Primitives [2]<br />
+								<video loop data-autoplay height="150px" data-src="assets/ingp.mp4" />
 							</li>
-							<li>Quality: Zip-NeRF<br />
+							<li>Quality: Zip-NeRF [3]<br />
 							</li>
-							<video style="left: 0; top: 0;position: relative;" loop data-autoplay height="200px" data-src="assets/zipnerf.mp4" />
+							<video style="left: 0; top: 0;position: relative;" loop data-autoplay height="150px" data-src="assets/zipnerf.mp4"></video>
 						</ul>
+						<div data-id="footnote" style="position: absolute; bottom: 0px; left: 0px; text-align: left; font-size: 0.6em; color: gray">
+							<div data-id="footnote-1">[1] NeuS: Learning Neural Implicit Surfaces by Volume Rendering for Multi-view Reconstruction, Wang et al., 2021</div>
+							<div data-id="footnote-2">[2] Instant Neural Graphics Primitives with a Multiresolution Hash Encoding, Müller et al., 2022</div>
+							<div data-id="footnote-3">[3] Zip-NeRF: Anti-Aliased Grid-Based Neural Radiance Fields, Barron et al., 2023</div>
+						</div>
 					</section>
 				</section>
 				<section data-auto-animate>
@@ -289,6 +314,7 @@
 
 						<li  class="fragment" data-fragment-index="3" >Limitation: continuous reoptimization of previous areas required to prevent forgetting</li>
 					</ul>
+					<div data-id="footnote" style="position: absolute; bottom: 0px; left: 0px; text-align: left; font-size: 0.6em; color: gray">iMAP: Implicit Mapping and Positioning in Real-Time, Sucar et al., 2021</div>
 				</section>
 				<section data-auto-animate>
 					<section data-auto-animate>
@@ -311,8 +337,9 @@
 								<br />$\to$ No more forgetting, better scalability
 							</li>
 						</ul>
-						<video data-autoplay loop style="left: 0px; top: 0;position: relative;" height="850px" data-src="assets/niceslam.mp4" />
+						<video data-autoplay loop style="left: 0px; top: 0px;position: relative;" height="750px" data-src="assets/niceslam.mp4" />
 					</section>
+					<div style="position: absolute; bottom: 0px; left: 0px; text-align: left; font-size: 0.6em; color: gray">NICE-SLAM: Neural Implicit Scalable Encoding for SLAM, Zhu et al., 2022</div>
 				</section>
 				<section data-auto-animate>
 					<section data-auto-animate>
@@ -320,66 +347,86 @@
 						<h1>Follow-up Works</h1>
 						<h2></h2>
 						<ul style="width: 100%">
-							<li>ESLAM: triplane encoding
+							<li>ESLAM [1]: triplane encoding
 								<br />
-								<img src="assets/eslam.jpg" height="800px">
+								<img src="assets/eslam.jpg" height="700px">
 							</li>
 						</ul>
+						<div data-id="footnote" style="position: absolute; bottom: 0px; left: 0px; text-align: left; font-size: 0.6em; color: gray">
+							<div data-id="footnote-1">[1] ESLAM: Efficient Dense SLAM System Based on Hybrid Representation of Signed Distance Fields, Johari et al., 2023</div>
+							<div style="opacity: 0%" data-id="footnote-2">[2] Co-SLAM: Joint Coordinate and Sparse Parametric Encodings for Neural Real-Time SLAM, Wang et al., 2023</div>
+							<div style="opacity: 0%" data-id="footnote-3">[3] GO-SLAM: Global Optimization for Consistent 3D Instant Reconstruction, Zhang et al., 2023</div>
+						</div>
 					</section>
 					<section data-auto-animate>
 						<h4>Neural Scene Representations for SLAM</h4>
 						<h1>Follow-up Works</h1>
 						<h2></h2>
 						<ul style="width: 100%">
-							<li>ESLAM: triplane encoding
+							<li>ESLAM [1]: triplane encoding
 								<br />
 								<img src="assets/eslam.jpg" height="150px">
 							</li>
-							<li>Co-SLAM: joint hash / coordinate encoding
+							<li>Co-SLAM [2]: joint hash / coordinate encoding
 								<br />
-								<img src="assets/coslam.png" height="550px" />
+								<img src="assets/coslam.png" height="450px" />
 							</li>
 						</ul>
+						<div data-id="footnote" style="position: absolute; bottom: 0px; left: 0px; text-align: left; font-size: 0.6em; color: gray">
+							<div data-id="footnote-1">[1] ESLAM: Efficient Dense SLAM System Based on Hybrid Representation of Signed Distance Fields, Johari et al., 2023</div>
+							<div data-id="footnote-2">[2] Co-SLAM: Joint Coordinate and Sparse Parametric Encodings for Neural Real-Time SLAM, Wang et al., 2023</div>
+							<div style="opacity: 0%" data-id="footnote-3">[3] GO-SLAM: Global Optimization for Consistent 3D Instant Reconstruction, Zhang et al., 2023</div>
+						</div>
 					</section>
 					<section data-auto-animate>
 						<h4>Neural Scene Representations for SLAM</h4>
 						<h1>Follow-up Works</h1>
 						<h2></h2>
 						<ul style="width: 100%">
-							<li>ESLAM: triplane encoding
+							<li>ESLAM [1]: triplane encoding
 								<br />
 								<img src="assets/eslam.jpg" height="150px">
 							</li>
-							<li>Co-SLAM: joint hash / coordinate encoding
+							<li>Co-SLAM [2]: joint hash / coordinate encoding
 								<br />
 								<img src="assets/coslam.png" height="150px" />
 							</li>
-							<li>GO-SLAM: loop closure via reoptimization
+							<li>GO-SLAM [3]: loop closure via reoptimization
 								<br />
-								<img style="position: relative; left: 850px; top: -200px;"
+								<img style="position: relative; left: 950px; top: -270px;"
 			 src="assets/goslam.png" height="450" />
 							</li>
 						</ul>
+						<div data-id="footnote" style="position: absolute; bottom: 0px; left: 0px; text-align: left; font-size: 0.6em; color: gray">
+							<div data-id="footnote-1">[1] ESLAM: Efficient Dense SLAM System Based on Hybrid Representation of Signed Distance Fields, Johari et al., 2023</div>
+							<div data-id="footnote-2">[2] Co-SLAM: Joint Coordinate and Sparse Parametric Encodings for Neural Real-Time SLAM, Wang et al., 2023</div>
+							<div data-id="footnote-3">[3] GO-SLAM: Global Optimization for Consistent 3D Instant Reconstruction, Zhang et al., 2023</div>
+						</div>
 					</section>
 					<section data-auto-animate>
 						<h4>Neural Scene Representations for SLAM</h4>
 						<h1>Follow-up Works</h1>
 						<h2></h2>
 						<ul style="width: 100%">
-							<li>ESLAM: triplane encoding
+							<li>ESLAM [1]: triplane encoding
 								<br />
 								<img src="assets/eslam.jpg" height="150px">
 							</li>
-							<li>Co-SLAM: joint hash / coordinate encoding
+							<li>Co-SLAM [2]: joint hash / coordinate encoding
 								<br />
 								<img src="assets/coslam.png" height="150px" />
 							</li>
-							<li>GO-SLAM: loop closure via reoptimization
+							<li>GO-SLAM [3]: loop closure via reoptimization
 								<br />
 								<img style="position: relative; left: 0px; top: 0px;"
 			 src="assets/goslam.png" height="150" />
 							</li>
 						</ul>
+						<div data-id="footnote" style="position: absolute; bottom: 0px; left: 0px; text-align: left; font-size: 0.6em; color: gray">
+							<div data-id="footnote-1">[1] ESLAM: Efficient Dense SLAM System Based on Hybrid Representation of Signed Distance Fields, Johari et al., 2023</div>
+							<div data-id="footnote-2">[2] Co-SLAM: Joint Coordinate and Sparse Parametric Encodings for Neural Real-Time SLAM, Wang et al., 2023</div>
+							<div data-id="footnote-3">[3] GO-SLAM: Global Optimization for Consistent 3D Instant Reconstruction, Zhang et al., 2023</div>
+						</div>
 					</section>
 				</section>
 				<section data-auto-animate>
@@ -457,6 +504,7 @@
 						<img style="position: relative; top: 70px;" src="assets/ngm_anim_4.png" height="700px">
 						<img style="position: relative; top: 70px; left: 300px;" src="assets/ngm_example.png" height="700px">
 					</section>
+					<div style="position: absolute; bottom: 0px; left: 0px; text-align: left; font-size: 0.6em; color: gray">Neural Graph Mapping for Scalable Dense SLAM with Loop Closure, Bruns et al., 2024</div>
 				</section>
 				<section data-auto-animate>
 					<h4>Efficient Loop Closure for Neural SLAM</h4>
@@ -522,27 +570,10 @@
 							</li>
 						</ul>
 						<img class="fragment" data-fragment-index="2" style="left: 0px; top: 50px; position: relative;" height="400px" data-src="assets/reconfusion.png" />
-					</section>
-					<section data-auto-animate>
-						<h1>Future</h1>
-						<h2>Learning vs Optimization</h2>
-						<ul>
-							<li>Optimization-based approaches inherently limited to what is captured by sensors
-								<ul>
-									<li>Sufficient for elaborate sensor setups and human operator</li>
-									<li>However, far from human-level spatial understanding (infilling / etc.)</li>
-								</ul>
-							</li>
-							<li>Learning approaches might infill from partial observations</li>
-							<li>How to combine strong generative model with partial observations?
-								<ul>
-									<li>Some work in this direction: ReconFusion<br />
-									</li>
-								</ul>
-							</li>
-						</ul>
-						<img style="left: 0px; top: 50px; position: relative;" height="400px" data-src="assets/reconfusion.png" />
-						<video data-autoplay loop style="left: 100px; top: 50px; position: relative;" height="400px" data-src="assets/reconfusion_example.mp4"></video>
+						<span class="fragment" data-fragment-index="3">
+							<video  data-autoplay loop style="left: 100px; top: 50px; position: relative;" height="400px" data-src="assets/reconfusion_example.mp4"></video>
+						</span>
+						<div class="fragment" data-fragment-index="2" style="position: absolute; bottom: 0px; left: 0px; text-align: left; font-size: 0.6em; color: gray">ReconFusion: 3D Reconstruction with Diffusion Priors, Wu et al., 2023</div>
 					</section>
 				</section>
 				<section data-auto-animate>
@@ -585,6 +616,7 @@
 						<video data-autoplay loop style="left: 0px; top: 50px; position: relative;" height="400px" data-src="assets/gs_bicycle.mp4"></video>
 						<!-- https://lumalabs.ai/featured -->
 					</section>
+					<div style="position: absolute; bottom: 0px; left: 0px; text-align: left; font-size: 0.6em; color: gray">3D Gaussian Splatting for Real-Time Radiance Field Rendering, Kerbl et al., 2023</div>
 				</section>
 				<section data-auto-animate>
 					<h1>Future</h1>
@@ -596,12 +628,14 @@
 								<li>Reflections are baked in</li>
 								<li>Shadows are baked in</li>
 							</ul>
-							<li>Some early work in this direction: LERF, GARField
+							<li class="fragment" data-fragment-index="2">
+								Some early work in this direction: LERF [1], GARField [2]
 								<br />
 								<video data-autoplay loop style="left: 0px; top: 50px; position: relative;" height="500px" data-src="assets/lerf.mp4"></video>
 								<video data-autoplay loop style="left: 50px; top: 50px; position: relative;" height="500px" data-src="assets/garfield_su.mp4"></video>
 							</li>
 					</ul>
+					<div class="fragment" data-fragment-index="2" style="position: absolute; bottom: 0px; left: 0px; text-align: left; font-size: 0.6em; color: gray">[1] LERF: Language Embedded Radiance Fields, Kerr et al., 2023<br />[2] GARField: Group Anything with Radiance Fields, Kim et al., 2024</div>
 				</section>
 
 			</div>
