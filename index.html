@@ -86,12 +86,12 @@
 						<li>Core idea: represent 3D shape by a simple neural network
 							\[
 							\begin{aligned}
-							f: \mathbb{R}^{3} &\to \mathbb{R}^3\times\mathbb{R}\\
+							f_\theta: \mathbb{R}^{3} &\to \mathbb{R}^3\times\mathbb{R}\\
 							\boldsymbol{x}&\mapsto (\boldsymbol{c}, \rho)
 							\end{aligned}
 							\]
 						</li>
-						<li class="fragment" data-fragment-index="2">Map 3D point $\boldsymbol{x}$ to quantity $\rho$ (e.g., SDF, occupancy, color, etc.)</li>
+						<li class="fragment" data-fragment-index="2">Map 3D point $\boldsymbol{x}$ to color $\boldsymbol{c}$ and quantity $\rho$ (e.g., SDF, occupancy, etc.)</li>
 						<li class="fragment" data-fragment-index="3">Properties
 							<ul>
 								<li>Continuous</li>
@@ -112,13 +112,13 @@
 					<h1>Neural Scene Representations</h1>
 					<h2>Early Works</h2>
 					<ul>
-						<li>Trained using direct 3D supervision (i.e., from mesh collections)</li>
 						<li>DeepSDF [1], occupancy network [2], ...</li>
+						<li>Trained using direct 3D supervision (i.e., from mesh collections)</li>
 						<li>Demonstrate shape interpolation by adding additional latent input</li>
 						\[
 						\begin{aligned}
-						f: \mathbb{R}^{3} \times \mathbb{R}^N &\to \mathbb{R}\\
-						(\boldsymbol{x}, \boldsymbol{z})&\mapsto \sigma
+						f_\theta: \mathbb{R}^{3} \times \mathbb{R}^N &\to \mathbb{R}\\
+						(\boldsymbol{x}, \boldsymbol{z})&\mapsto \rho
 						\end{aligned}
 						\]
 					</ul>
@@ -137,7 +137,7 @@
 						<li>Add 2D view direction as additional input</li>
 						\[
 						\begin{aligned}
-						f: \mathbb{R}^{3} \times \mathbb{R}^2 &\to \mathbb{R}^3\times\mathbb{R}\\
+						f_\theta: \mathbb{R}^{3} \times \mathbb{R}^2 &\to \mathbb{R}^3\times\mathbb{R}\\
 						(\boldsymbol{x}, \boldsymbol{d})&\mapsto (\boldsymbol{c}, \sigma)
 						\end{aligned}
 						\]
@@ -288,7 +288,7 @@
 					<ul>
 						<li>Visual Simultaneous Localization and Mapping (SLAM)
 							<ul>
-								<li>Estimate camera trajectory from moving camera</li>
+								<li>Estimate camera trajectory of a moving camera from its image stream</li>
 								<li>Sparse keypoint-based maps</li>
 							</ul>
 						</li>
@@ -314,7 +314,7 @@
 					<ul>
 						<li>First work demonstrating SLAM using neural field as scene representation</li>
 						<li>Alternates between frame-to-map alignment and map refinement</li>
-						<li>Compared to NeRF
+						<li  class="fragment" data-fragment-index="1">Compared to NeRF
 							<ul>
 								<li>Removed view-direction dependency</li>
 								<li>Smaller neural network</li>
@@ -404,7 +404,7 @@
 							</li>
 							<li>GO-SLAM [3]: loop closure via reoptimization
 								<br />
-								<img style="position: relative; left: 950px; top: -270px;"
+								<img style="position: relative; left: 900px; top: -270px;"
 			 src="assets/goslam.png" height="450" />
 							</li>
 						</ul>
@@ -541,19 +541,19 @@
 						</ul>
 						</li>
 						<br />
-						<li>Neural field-based map not used for SLAM currently
+						<li class="fragment" data-fragment-index="1">Neural field-based map not used for SLAM currently
 							<ul>
 								<li>How to combine sparse visual SLAM and dense visual SLAM?</li>
 							</ul>
 						</li>
 						<br />
-						<li>Currently limited to indoor environments with depth data available
+						<li class="fragment" data-fragment-index="2">Currently limited to indoor environments with depth data available
 							<ul>
 								<li>How to extend to outdoor environments?</li>
 							</ul>
 						</li>
 						<br />
-						<li>Neural SLAM in general requires lots of resources
+						<li class="fragment" data-fragment-index="3">Neural SLAM in general requires lots of resources
 							<ul>
 								<li>Can we use meta-learning for few-shot mapping?</li>
 							</ul>
@@ -608,6 +608,9 @@
 								$\to$ Real-time (>100 FPS), high-resolution rendering
 							</li>
 						</ul>
+						<div data-id="footnote" style="position: absolute; bottom: 0px; left: 0px; text-align: left; font-size: 0.6em; color: gray">3D Gaussian Splatting for Real-Time Radiance Field Rendering, Kerbl et al., 2023<br />
+							<a href="https://lumalabs.ai/featured">https://lumalabs.ai/featured</a>
+						</div>
 					</section>
 					<section data-auto-animate>
 						<h1>Outlook</h1>
@@ -629,8 +632,10 @@
 						<video data-autoplay loop style="left: 0px; top: 50px; position: relative;" height="400px" data-src="assets/gs_stump.mp4"></video>
 						<video data-autoplay loop style="left: 0px; top: 50px; position: relative;" height="400px" data-src="assets/gs_bicycle.mp4"></video>
 						<!-- https://lumalabs.ai/featured -->
+						<div data-id="footnote" style="position: absolute; bottom: 0px; left: 0px; text-align: left; font-size: 0.6em; color: gray">3D Gaussian Splatting for Real-Time Radiance Field Rendering, Kerbl et al., 2023<br />
+							<a href="https://lumalabs.ai/featured">https://lumalabs.ai/featured</a>
+						</div>
 					</section>
-					<div style="position: absolute; bottom: 0px; left: 0px; text-align: left; font-size: 0.6em; color: gray">3D Gaussian Splatting for Real-Time Radiance Field Rendering, Kerbl et al., 2023</div>
 				</section>
 				<section data-auto-animate>
 					<h1>Outlook</h1>
@@ -638,7 +643,7 @@
 					<ul>
 						<li>Scenes learned in this way are not interactive
 							<ul>
-								<li>Objects are not separated; and note complete</li>
+								<li>Objects are not separated; and not complete</li>
 								<li>Reflections are baked in</li>
 								<li>Shadows are baked in</li>
 							</ul>
