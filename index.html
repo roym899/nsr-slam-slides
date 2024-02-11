@@ -471,10 +471,7 @@
 				<section data-auto-animate>
 					<h4>Efficient Loop Closure for Neural SLAM</h4>
 					<h1>Comparison to Monolithic Approaches</h1>
-
-					<ul>
-						<li>TODO? what to put here?</li>
-					</ul>
+					<img style="left: 0; top: 0;position: relative;" src="assets/ngm_comparison.png" height="800px" />
 				</section>
 				<section data-auto-animate>
 					<h4>Efficient Loop Closure for Neural SLAM</h4>
@@ -549,13 +546,45 @@
 					</section>
 				</section>
 				<section data-auto-animate>
-					<h1>Future</h1>
-					<h2>Gaussian Splatting</h2>
-					<ul>
-						<li>Represent scene by a set of 3D Gaussians instead of differentiable function</li>
-						<li>Allows significantly faster rendering (100 FPS) because Gaussians can be rasterized </li>
-					</ul>
-					https://lumalabs.ai/featured
+					<section data-auto-animate>
+						<h1>Future</h1>
+						<h2>Gaussian Splatting</h2>
+						<ul>
+							<li>Represent scene by a set of 3D Gaussians instead of differentiable function</li>
+							<li class="fragment" data-fragment-index="2">Each Gaussian has
+								<ul>
+									<li>Shape: position + covariance</li>
+									<li>Opacity</li>
+									<li>Coefficients of spherical harmonics ($\to$ view-dependent color)</li>
+								</ul>
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								Rasterization instead of volume rendering <br />
+								$\to$ Real-time (>100 FPS), high-resolution rendering
+							</li>
+						</ul>
+					</section>
+					<section data-auto-animate>
+						<h1>Future</h1>
+						<h2>Gaussian Splatting</h2>
+						<ul>
+							<li>Represent scene by a set of 3D Gaussians instead of differentiable function</li>
+							<li>Each Gaussian has
+								<ul>
+									<li>Shape: position + covariance</li>
+									<li>Opacity</li>
+									<li>Coefficients of spherical harmonics ($\to$ view-dependent color)</li>
+								</ul>
+							</li>
+							<li>
+								Rasterization instead of volume rendering <br />
+								$\to$ Real-time (>100 FPS), high-resolution rendering
+							</li>
+						</ul>
+						<video data-autoplay loop style="left: 0px; top: 50px; position: relative;" height="400px" data-src="assets/gs_stump.mp4"></video>
+						<video data-autoplay loop style="left: 0px; top: 50px; position: relative;" height="400px" data-src="assets/gs_bicycle.mp4"></video>
+						<!-- https://lumalabs.ai/featured -->
+					</section>
 				</section>
 				<section data-auto-animate>
 					<h1>Future</h1>
